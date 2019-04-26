@@ -48,13 +48,15 @@ const ProfileSchema = new Schema({
       location: {
         type: String
       },
-
+      from: {
+        type: String
+      },
       to: {
         type: String
       },
       current: {
         type: Boolean,
-        default: true
+        default: false
       },
       description: {
         type: String
@@ -74,7 +76,10 @@ const ProfileSchema = new Schema({
       fieldofschool: {
         type: String
       },
-
+      from: {
+        type: String,
+        required: true
+      },
       to: {
         type: String
       },
