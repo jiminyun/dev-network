@@ -32,13 +32,14 @@ const actions = {
       .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }));
   },
   // Log user out
-  logoutUser: () => (dispatch, history) => {
+  logoutUser: history => dispatch => {
     // Remove token from localStorage
     localStorage.removeItem("jwtToken");
     // Remove auth header for future request
     setAuthToken(false);
     // Set current user to {} whtich will set isAuthorized to false
     dispatch(setCurrentUser({}));
+    history.push("/");
   }
 };
 

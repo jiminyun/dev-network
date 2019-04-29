@@ -11,6 +11,7 @@ class Footer extends Component {
     this.props.logoutUser(this.props.history);
   }
   render() {
+    //console.log(this.props);
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
@@ -71,8 +72,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logoutUser: (userData, history) =>
-    dispatch(authActions.logoutUser(userData, history))
+  logoutUser: history => dispatch(authActions.logoutUser(history))
 });
 
 export default connect(
