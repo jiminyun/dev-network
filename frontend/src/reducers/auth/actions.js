@@ -16,7 +16,7 @@ const actions = {
   // Login - Get User Token
   loginUser: userData => dispatch => {
     axios
-      .post("/api/user/login", userData)
+      .post("/api/users/login", userData)
       .then(res => {
         // Save to LocalStorage
         const { token } = res.data;
@@ -34,7 +34,7 @@ const actions = {
 };
 
 // Set logged in user
-const setCurrentUser = decoded => {
+export const setCurrentUser = decoded => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded

@@ -2,8 +2,6 @@ import React from "react";
 import classnames from "classnames";
 
 const Presenter = props => {
-  //console.log(props);
-
   const { email, password, errors, handleSubmit, handleInputChange } = props;
 
   return (
@@ -15,26 +13,36 @@ const Presenter = props => {
             <p className="lead text-center">
               Sign in to your DevConnector account
             </p>
-            <form onSubmit={handleSubmit}>
+            <form noValidate onSubmit={handleSubmit}>
               <div className="form-group">
                 <input
                   type="email"
-                  className="form-control form-control-lg"
+                  className={classnames("form-control form-control-lg", {
+                    "is-invalid": errors.email
+                  })}
                   placeholder="Email Address"
                   name="email"
                   value={email}
                   onChange={handleInputChange}
                 />
+                {errors.email && (
+                  <div className="invalid-feedback">{errors.email}</div>
+                )}
               </div>
               <div className="form-group">
                 <input
                   type="password"
-                  className="form-control form-control-lg"
+                  className={classnames("form-control form-control-lg", {
+                    "is-invalid": errors.password
+                  })}
                   placeholder="Password"
                   name="password"
                   value={password}
                   onChange={handleInputChange}
                 />
+                {errors.password && (
+                  <div className="invalid-feedback">{errors.password}</div>
+                )}
               </div>
               <input type="submit" className="btn btn-info btn-block mt-4" />
             </form>
