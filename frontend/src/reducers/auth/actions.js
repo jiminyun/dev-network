@@ -30,6 +30,15 @@ const actions = {
         dispatch(setCurrentUser(decoded));
       })
       .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }));
+  },
+  // Log user out
+  logoutUser: () => (dispatch, history) => {
+    // Remove token from localStorage
+    localStorage.removeItem("jwtToken");
+    // Remove auth header for future request
+    setAuthToken(false);
+    // Set current user to {} whtich will set isAuthorized to false
+    dispatch(setCurrentUser({}));
   }
 };
 
@@ -40,5 +49,7 @@ export const setCurrentUser = decoded => {
     payload: decoded
   };
 };
+
+// Logged user out
 
 export default actions;

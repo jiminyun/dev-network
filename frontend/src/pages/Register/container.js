@@ -17,6 +17,14 @@ class container extends Component {
     errors: PropTypes.object.isRequired
   };
 
+  componentDidMount() {
+    const { isAuthenticated } = this.props.auth;
+    //console.log(isAuthenticated);
+    if (isAuthenticated) {
+      this.props.history.push("./dashboard");
+    }
+  }
+
   getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.errors !== prevState.errors) {
       return { errors: nextProps.errors };

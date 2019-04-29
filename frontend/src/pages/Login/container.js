@@ -25,6 +25,11 @@ class Container extends Component {
     if (prevProps.errors !== this.props.errors) {
       this.setState({ errors: this.props.errors });
     }
+    const { isAuthenticated } = this.props.auth;
+    //console.log(isAuthenticated);
+    if (isAuthenticated) {
+      this.props.history.push("./dashboard");
+    }
   }
 
   handleInputChange = e => {
