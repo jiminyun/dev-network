@@ -1,5 +1,5 @@
 import React from "react";
-import classnames from "classnames";
+import TextFieldGrp from "components/common/TextFieldGrp";
 
 const Presenter = props => {
   const { email, password, errors, handleSubmit, handleInputChange } = props;
@@ -14,36 +14,22 @@ const Presenter = props => {
               Sign in to your DevConnector account
             </p>
             <form noValidate onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input
-                  type="email"
-                  className={classnames("form-control form-control-lg", {
-                    "is-invalid": errors.email
-                  })}
-                  placeholder="Email Address"
-                  name="email"
-                  value={email}
-                  onChange={handleInputChange}
-                />
-                {errors.email && (
-                  <div className="invalid-feedback">{errors.email}</div>
-                )}
-              </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  className={classnames("form-control form-control-lg", {
-                    "is-invalid": errors.password
-                  })}
-                  placeholder="Password"
-                  name="password"
-                  value={password}
-                  onChange={handleInputChange}
-                />
-                {errors.password && (
-                  <div className="invalid-feedback">{errors.password}</div>
-                )}
-              </div>
+              <TextFieldGrp
+                placeholder="Email Address"
+                name="email"
+                type="email"
+                value={email}
+                onChange={handleInputChange}
+                error={errors.email}
+              />
+              <TextFieldGrp
+                placeholder="Password"
+                name="Password"
+                type="Password"
+                value={password}
+                onChange={handleInputChange}
+                error={errors.password}
+              />
               <input type="submit" className="btn btn-info btn-block mt-4" />
             </form>
           </div>
