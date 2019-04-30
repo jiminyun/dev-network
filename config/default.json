@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://jiminAdmin:pu2889pu_!@cluster0-zgnsl.mongodb.net/test?retryWrites=true",
+  "jwtSecret": "mysecrettoken"
+}

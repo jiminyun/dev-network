@@ -24,8 +24,8 @@ const Presenter = props => {
               />
               <TextFieldGrp
                 placeholder="Password"
-                name="Password"
-                type="Password"
+                name="password"
+                type="password"
                 value={password}
                 onChange={handleInputChange}
                 error={errors.password}

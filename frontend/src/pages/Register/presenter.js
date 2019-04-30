@@ -38,16 +38,16 @@ const Presenter = props => {
               />
               <TextFieldGrp
                 placeholder="Password"
-                name="Password"
-                type="Password"
+                name="password"
+                type="password"
                 value={password}
                 onChange={handleInputChange}
                 error={errors.password}
               />
               <TextFieldGrp
                 placeholder="Confirm Password"
-                name="Password2"
-                type="Password"
+                name="password2"
+                type="password"
                 value={password2}
                 onChange={handleInputChange}
                 error={errors.password2}
