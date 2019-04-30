@@ -5,37 +5,30 @@ const Presenter = props => {
   const { email, password, errors, handleSubmit, handleInputChange } = props;
 
   return (
-    <div className="login">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8 m-auto">
-            <h1 className="display-4 text-center">Log In</h1>
-            <p className="lead text-center">
-              Sign in to your DevConnector account
-            </p>
-            <form noValidate onSubmit={handleSubmit}>
-              <TextFieldGrp
-                placeholder="Email Address"
-                name="email"
-                type="email"
-                value={email}
-                onChange={handleInputChange}
-                error={errors.email}
-              />
-              <TextFieldGrp
-                placeholder="Password"
-                name="password"
-                type="password"
-                value={password}
-                onChange={handleInputChange}
-                error={errors.password}
-              />
-              <input type="submit" className="btn btn-info btn-block mt-4" />
-            </form>
-          </div>
+    <section className="container">
+      {/* <div className="alert alert-danger">Invalid credentials</div> */}
+      <h1 className="large">Sign In</h1>
+      <p className="lead">
+        <i className="fas fa-user" /> Sign into Your Account
+      </p>
+      <form className="form" action="dashboard.html">
+        <div className="form-group">
+          <input
+            type="email"
+            placeholder="Email Address"
+            name="email"
+            required
+          />
         </div>
-      </div>
-    </div>
+        <div className="form-group">
+          <input type="password" placeholder="Password" name="password" />
+        </div>
+        <input type="submit" className="btn btn-primary" value="Login" />
+      </form>
+      <p className="my-1">
+        Don't have an account? <a href="register.html">Sign Up</a>
+      </p>
+    </section>
   );
 };
 

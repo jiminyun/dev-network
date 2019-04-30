@@ -1,47 +1,36 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   return (
-    <header class="header">
-      <div class="container clearfix">
+    <header className="header">
+      <div className="container clearfix">
         <img
-          class="profile-image img-fluid float-left"
+          className="profile-image img-fluid float-left"
           src={require("../../assets/images/profile.png")}
           alt="James Lee"
         />
-        <div class="profile-content float-left">
-          <h1 class="name">James Lee</h1>
-          <h2 class="desc">Web App Developer</h2>
-          <ul class="social list-inline">
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-twitter" />
-              </a>
+        <div className="profile-content float-left">
+          <h1 className="name">James Lee</h1>
+          <h2 className="desc">Web App Developer</h2>
+          <ul className="social list-inline">
+            <li className="list-inline-item">
+              <i className="fab fa-twitter" />
             </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-google-plus-g" />
-              </a>
+            <li className="list-inline-item">
+              <i className="fab fa-google-plus-g" />|
             </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-linkedin-in" />
-              </a>
+            <li className="list-inline-item">
+              <i className="fab fa-linkedin-in" />
             </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-github-alt" />
-              </a>
+            <li className="list-inline-item">
+              <i className="fab fa-github-alt" />
             </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-stack-overflow" />
-              </a>
+            <li className="list-inline-item">
+              <i className="fab fa-stack-overflow" />
             </li>
-            <li class="list-inline-item last-item">
-              <a href="#">
-                <i class="fab fa-codepen" />
-              </a>
+            <li className="list-inline-item last-item">
+              <i className="fab fa-codepen" />
             </li>
           </ul>
         </div>

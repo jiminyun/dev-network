@@ -24,10 +24,7 @@ class Footer extends Component {
             style={{ width: "25px", marginRight: "5px" }}
             title="You must have a Gravatar connected to your email to display an image"
           />
-          {` `}{" "}
-          <a href="#" onClick={this.onLogoutClick.bind(this)}>
-            logout
-          </a>
+          {` `} <span onClick={this.onLogoutClick.bind(this)}>logout</span>
         </li>
       </ul>
     );
@@ -35,7 +32,10 @@ class Footer extends Component {
     const guestLinks = (
       <ul className="footer navigation">
         <li>
-          <Link to="/register">sign-in</Link>
+          <Link to="/">home</Link>
+        </li>
+        <li>
+          <Link to="/register">sign up</Link>
         </li>
         <li>
           <Link to="/login">log in</Link>
