@@ -5,6 +5,8 @@ import Footer from "components/layout/Footer";
 import Landing from "components/layout/Landing";
 import Register from "pages/Register/";
 import Login from "pages/Login";
+import Dashboard from "pages/Dashboard";
+import PrivateRoute from "components/routing/PrivateRoute";
 import Profile from "pages/Profiles";
 import Alert from "components/layout/Alert";
 import "assets/styles/App.css";
@@ -28,6 +30,7 @@ const App = () => {
         <div className="App">
           <Route exact path="/" component={Landing} />
           <Route exact path="/profiles" component={Profile} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <section className="container">
             <Alert />
             <Switch>
