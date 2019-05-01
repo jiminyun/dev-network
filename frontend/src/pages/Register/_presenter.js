@@ -13,7 +13,7 @@ const Presenter = props => {
   } = props;
 
   return (
-    <section className="container">
+    <>
       <h1 className="large">Sign Up</h1>
       <p className="lead">
         <i className="fas fa-user" /> Create Your Account
@@ -50,7 +50,7 @@ const Presenter = props => {
       <p className="my-1">
         Already have an account? <a href="login.html">Sign In</a>
       </p>
-    </section>
+    </>
   );
 };
 

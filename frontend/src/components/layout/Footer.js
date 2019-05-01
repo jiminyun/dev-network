@@ -5,63 +5,46 @@ import { connect } from "react-redux";
 import authActions from "reducers/auth/actions";
 import { withRouter } from "react-router-dom";
 
-class Footer extends Component {
-  onLogoutClick(e) {
-    e.preventDefault();
-    this.props.logoutUser(this.props.history);
-  }
-  render() {
-    //console.log(this.props);
-    const { isAuthenticated, user } = this.props.auth;
+const Footer = ({ auth: { isAuthenticated, loading }, logoutUser }) => {
+  const authLinks = (
+    <ul className="footer navigation">
+      <Link to="/">
+        <i className="fas" /> home
+      </Link>
+      <li>
+        <a onClick={logoutUser} href="#!">
+          <i className="fas fa-sign-out-alt" />
+          <span className="hide-sm">Logout</span>
+        </a>
+      </li>
+    </ul>
+  );
+  const guestLinks = (
+    <ul className="footer navigation">
+      <li>
+        <Link to="/">
+          <i className="fas" /> <span>home</span>
+        </Link>
+        <Link to="/login">
+          <i className="fas" /> <span>login </span>
+        </Link>
+        <Link to="/register">
+          <i className="fas" /> <span>sign in</span>
+        </Link>
+      </li>
+    </ul>
+  );
 
-    const authLinks = (
-      <ul className="footer navigation">
-        <li>
-          <img
-            className="rounded-circle"
-            src={user.avatar}
-            alt={user.name}
-            style={{ width: "25px", marginRight: "5px" }}
-            title="You must have a Gravatar connected to your email to display an image"
-          />
-          {` `} <span onClick={this.onLogoutClick.bind(this)}>logout</span>
-        </li>
-      </ul>
-    );
-
-    const guestLinks = (
-      <ul className="footer navigation">
-        <li>
-          <Link to="/">home</Link>
-        </li>
-        <li>
-          <Link to="/register">sign up</Link>
-        </li>
-        <li>
-          <Link to="/login">log in</Link>
-        </li>
-      </ul>
-    );
-
-    return (
-      <footer className="footer">
-        <ul className="footer navigation">
-          <li>
-            <Link to="/">connecters</Link>
-          </li>
-          <li>
-            <Link to="/profiles">developers</Link>
-          </li>
-        </ul>
-        {isAuthenticated ? authLinks : guestLinks}
-        <small className="copyright">
-          Designed with <i className="fas fa-heart" />
-          developers
-        </small>
-      </footer>
-    );
-  }
-}
+  return (
+    <footer className="footer">
+      {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
+      <small className="copyright">
+        Designed with <i className="fas fa-heart" />
+        developers
+      </small>
+    </footer>
+  );
+};
 
 Footer.propTypes = {
   logoutUser: PropTypes.func.isRequired,

@@ -5,7 +5,7 @@ const Presenter = props => {
   const { email, password, errors, handleSubmit, handleInputChange } = props;
 
   return (
-    <section className="container">
+    <>
       {/* <div className="alert alert-danger">Invalid credentials</div> */}
       <h1 className="large">Sign In</h1>
       <p className="lead">
@@ -28,7 +28,7 @@ const Presenter = props => {
       <p className="my-1">
         Don't have an account? <a href="register.html">Sign Up</a>
       </p>
-    </section>
+    </>
   );
 };
 

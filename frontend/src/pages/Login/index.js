@@ -1,18 +1,18 @@
 import { connect } from "react-redux";
 import authActions from "reducers/auth/actions";
-import Container from "./container";
+import Login from "./login";
 import { withRouter } from "react-router-dom";
 
 const mapStateToProps = state => ({
-  errors: state.error,
-  auth: state.auth
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 const mapDispatchToProps = dispatch => ({
-  loginUser: userData => dispatch(authActions.loginUser(userData))
+  loginUser: (email, password) =>
+    dispatch(authActions.loginUser(email, password))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(Container));
+)(withRouter(Login));

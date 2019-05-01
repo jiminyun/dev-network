@@ -1,19 +1,20 @@
 import { connect } from "react-redux";
 import authActions from "reducers/auth/actions";
-import Container from "./container";
+import alertActions from "reducers/alert/actions";
+import Register from "./register";
 import { withRouter } from "react-router-dom";
 
 const mapStateToProps = state => ({
-  errors: state.error,
-  auth: state.auth
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 const mapDispatchToProps = dispatch => ({
-  registerUser: (userData, history) =>
-    dispatch(authActions.registerUser(userData, history))
+  registerUser: ({ name, email, password }) =>
+    dispatch(authActions.registerUser({ name, email, password })),
+  setAlert: (msg, alertType) => dispatch(alertActions.setAlert(msg, alertType))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(Container));
+)(withRouter(Register));
