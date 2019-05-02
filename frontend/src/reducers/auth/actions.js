@@ -9,6 +9,7 @@ import {
   LOGIN_FAIL,
   LOGOUT
 } from "./types";
+import { CLEAR_PROFILE } from "../profile/types";
 import setAuthToken from "../../utils/setAuthToken";
 
 const actions = {
@@ -92,6 +93,7 @@ const actions = {
   // Logout / Clear Profile
   logoutUser: () => async dispatch => {
     dispatch({ type: LOGOUT });
+    dispatch({ type: CLEAR_PROFILE });
   }
 };
 // Register User

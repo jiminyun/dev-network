@@ -8,8 +8,9 @@ import { withRouter } from "react-router-dom";
 const Footer = ({ auth: { isAuthenticated, loading }, logoutUser }) => {
   const authLinks = (
     <ul className="footer navigation">
-      <Link to="/">
-        <i className="fas" /> home
+      <Link to="/dashboard">
+        <i className="fas fa-user" />
+        <span className="hide-sm">Dashboard</span>
       </Link>
       <li>
         <a onClick={logoutUser} href="#!">
