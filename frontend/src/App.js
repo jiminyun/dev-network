@@ -8,6 +8,7 @@ import Login from "pages/Login";
 import Dashboard from "pages/Dashboard";
 import PrivateRoute from "components/routing/PrivateRoute";
 import Profile from "pages/Profiles";
+import CreateProfile from "pages/CreateProfile";
 import Alert from "components/layout/Alert";
 import "assets/styles/App.css";
 // Redux
@@ -30,12 +31,17 @@ const App = () => {
         <div className="App">
           <Route exact path="/" component={Landing} />
           <Route exact path="/profiles" component={Profile} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <section className="container">
             <Alert />
             <Switch>
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <PrivateRoute
+                exact
+                path="/create-profile"
+                component={CreateProfile}
+              />
             </Switch>
           </section>
           <Footer />
