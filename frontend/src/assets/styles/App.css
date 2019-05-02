@@ -5,8 +5,8 @@
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
-  margin-bottom: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* Padding */
@@ -530,4 +530,8 @@ button {
 
 .profile-image {
   width: 180px;
+}
+
+.App {
+  border-top: 5px solid lightgrey;
 }

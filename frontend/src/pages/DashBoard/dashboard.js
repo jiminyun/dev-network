@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Spinner from "components/layout/Spinner";
+import DashboardActions from "./dashboardActions";
 
 const Dashboard = ({
   getCurrentProfile,
@@ -22,7 +23,9 @@ const Dashboard = ({
         <i className="fas fa-user" /> Welcome {user && user.name}
       </p>
       {profile !== null ? (
-        <>has</>
+        <>
+          <DashboardActions />
+        </>
       ) : (
         <>
           <p>You have not yet setup a profile, please add some info</p>

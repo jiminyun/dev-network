@@ -28,7 +28,7 @@ router.get("/me", auth, async (req, res) => {
   }
 });
 
-// @route  GET api/profile
+// @route   POST api/profile
 // @desc   Create or update user profile
 // @access Private
 router.post(
@@ -45,8 +45,9 @@ router.post(
     ]
   ],
   async (req, res) => {
+    console.log(req);
     const errors = validationResult(req);
-    if (!errors.isEmpty) {
+    if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
@@ -77,7 +78,7 @@ router.post(
     if (skills) {
       profileFields.skills = skills.split(",").map(skill => skill.trim());
     }
-    console.log(profileFields.skills);
+    //console.log(profileFields.skills);
 
     // Build social object
     profileFields.social = {};

@@ -1,12 +1,14 @@
 import { connect } from "react-redux";
 import profileActions from "reducers/profile/actions";
 import CreateProfile from "./createProfile";
+import { withRouter } from "react-router-dom";
 
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = {};
+const mapDispatchToPros = dispatch => ({
+  createProfile: (formData, history) =>
+    dispatch(profileActions.createProfile(formData, history))
+});
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CreateProfile);
+  null,
+  mapDispatchToPros
+)(withRouter(CreateProfile));
