@@ -1,8 +1,5 @@
 const express = require("express");
 const connectDB = require("./config/db");
-
-const passport = require("passport");
-
 const app = express();
 
 // Connect to MongoDB
@@ -10,12 +7,6 @@ connectDB();
 
 // Init Middleware : Body parser
 app.use(express.json({ extended: false }));
-
-// Passport middleware
-//app.use(passport.initialize());
-
-// Passport Config
-//require("./config/passport")(passport);
 
 // Define Routes
 app.use("/api/users", require("./routes/api/users"));
