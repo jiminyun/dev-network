@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Spinner from "components/layout/Spinner";
 import DashboardActions from "./dashboardActions";
+import Experience from "./experience";
+import Education from "./education";
 
 const Dashboard = ({
   getCurrentProfile,
@@ -25,6 +27,10 @@ const Dashboard = ({
       {profile !== null ? (
         <>
           <DashboardActions />
+          <br />
+          <br />
+          <Experience experience={profile.experience} />
+          <Education education={profile.education} />
         </>
       ) : (
         <>
