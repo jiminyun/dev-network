@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import Moment from "react-moment";
 import { connect } from "react-redux";
+import profileActions from "reducers/profile/actions";
 
-const Education = ({ education }) => {
+const Education = ({ education, deleteEducation }) => {
   const educations = education.map(edu => (
     <tr key={edu._id}>
       <td className="hide-sm">{edu.school}</td>
@@ -17,7 +18,12 @@ const Education = ({ education }) => {
         )}
       </td>
       <td>
-        <button className="btn btn-danger">Delete</button>
+        <button
+          className="btn btn-danger"
+          onClick={() => deleteEducation(edu._id)}
+        >
+          Delete
+        </button>
       </td>
     </tr>
   ));
@@ -44,4 +50,11 @@ Education.propTypes = {
   education: PropTypes.array.isRequired
 };
 
-export default Education;
+const mapDispatchToProps = dispatch => ({
+  deleteEducation: edu_id => dispatch(profileActions.deleteEducation(edu_id))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Education);

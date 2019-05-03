@@ -1,6 +1,13 @@
 import axios from "axios";
 import alertActions from "../alert/actions";
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from "./types";
+import {
+  GET_PROFILE,
+  PROFILE_ERROR,
+  UPDATE_PROFILE,
+  DELETE_PROFILE,
+  CLEAR_PROFILE
+} from "./types";
+import { ACCOUNT_DELETED } from "../auth/types";
 
 const actions = {
   // Get current user profile
@@ -120,6 +127,62 @@ const actions = {
         type: PROFILE_ERROR,
         payload: { msg: err.response.statusText, status: err.response.status }
       });
+    }
+  },
+
+  // Delete experience
+  deleteExperience: id => async dispatch => {
+    try {
+      const res = await axios.delete(`/api/profile/experience/${id}`);
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: res.data
+      });
+
+      dispatch(alertActions.setAlert("Experience Removed", "success"));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
+    }
+  },
+
+  // Delete education
+  deleteEducation: id => async dispatch => {
+    try {
+      const res = await axios.delete(`/api/profile/education/${id}`);
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: res.data
+      });
+
+      dispatch(alertActions.setAlert("Education Removed", "success"));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
+    }
+  },
+
+  // Delete account and profile
+  deleteAccount: () => async dispatch => {
+    if (window.confirm("Are you sure? This can NOT be undone")) {
+      try {
+        await axios.delete("/api/profile");
+
+        dispatch({ type: CLEAR_PROFILE });
+        dispatch({ type: ACCOUNT_DELETED });
+        dispatch(
+          alertActions.setAlert("Your account has been permanently deleted")
+        );
+      } catch (err) {
+        dispatch({
+          type: PROFILE_ERROR,
+          payload: { msg: err.response.statusText, status: err.response.status }
+        });
+      }
     }
   }
 };

@@ -108,7 +108,7 @@ const AddEducation = ({ addEducation, history }) => {
                     }}
                     id="current"
                   />
-                  <label className="form-check-label">Current Job</label>
+                  <label className="form-check-label">Current School</label>
                 </div>
                 <div className="form-group">
                   <textarea

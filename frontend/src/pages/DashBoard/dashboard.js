@@ -9,7 +9,8 @@ import Education from "./education";
 const Dashboard = ({
   getCurrentProfile,
   auth: { user },
-  profile: { profile, loading }
+  profile: { profile, loading },
+  deleteAccount
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -31,6 +32,12 @@ const Dashboard = ({
           <br />
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
+
+          <div className="my-2">
+            <button className="btn btn-danger" onClick={() => deleteAccount()}>
+              <i className="fas fa-user-minus" /> Delete My Account
+            </button>
+          </div>
         </>
       ) : (
         <>
@@ -47,7 +54,8 @@ const Dashboard = ({
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  deleteAccount: PropTypes.func.isRequired
 };
 
 export default Dashboard;
