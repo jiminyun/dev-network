@@ -39,10 +39,10 @@ const Footer = ({ auth: { isAuthenticated, loading }, logoutUser }) => {
   return (
     <footer className="footer">
       {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
-      <small className="copyright">
+      {/* <small className="copyright">
         Designed with <i className="fas fa-heart" />
         developers
-      </small>
+      </small> */}
     </footer>
   );
 };

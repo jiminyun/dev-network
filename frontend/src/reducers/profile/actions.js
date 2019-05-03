@@ -1,6 +1,6 @@
 import axios from "axios";
 import alertActions from "../alert/actions";
-import { GET_PROFILE, PROFILE_ERROR } from "./types";
+import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from "./types";
 
 const actions = {
   // Get current user profile
@@ -52,6 +52,70 @@ const actions = {
           dispatch(alertActions.setAlert(error.msg, "danger"))
         );
       }
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
+    }
+  },
+  // Add experience
+  addExperience: (formData, history) => async dispatch => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+
+      const res = await axios.put("api/profile/experience", formData, config);
+
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: res.data
+      });
+
+      dispatch(alertActions.setAlert("Experience Added", "success"));
+      history.push("/dashboard");
+    } catch (err) {
+      const errors = err.response.data.errors;
+      if (errors) {
+        errors.forEach(err =>
+          dispatch(alertActions.setAlert(err.msg, "danger"))
+        );
+      }
+
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
+    }
+  },
+  // Add education
+  addEducation: (formData, history) => async dispatch => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+
+      const res = await axios.put("api/profile/education", formData, config);
+
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: res.data
+      });
+
+      dispatch(alertActions.setAlert("Education Added", "success"));
+      history.push("/dashboard");
+    } catch (err) {
+      const errors = err.response.data.errors;
+      if (errors) {
+        errors.forEach(error =>
+          dispatch(alertActions.setAlert(error.msg, "danger"))
+        );
+      }
+
       dispatch({
         type: PROFILE_ERROR,
         payload: { msg: err.response.statusText, status: err.response.status }
