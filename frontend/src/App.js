@@ -12,6 +12,7 @@ import CreateProfile from "pages/CreateProfile";
 import EditProfile from "pages/EditProfile";
 import AddExperience from "pages/AddExperience";
 import AddEducation from "pages/AddEducation";
+import Profiles from "pages/Profiles/";
 import Alert from "components/layout/Alert";
 import "assets/styles/App.css";
 // Redux
@@ -33,13 +34,14 @@ const App = () => {
       <Router>
         <div className="App">
           <Route exact path="/" component={Landing} />
-          <Route exact path="/profiles" component={Profile} />
+          <Route exact path="/profile" component={Profile} />
           <section className="container">
             <Alert />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/profiles" component={Profiles} />
               <PrivateRoute
                 exact
                 path="/create-profile"

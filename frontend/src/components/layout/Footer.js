@@ -8,10 +8,15 @@ import { withRouter } from "react-router-dom";
 const Footer = ({ auth: { isAuthenticated, loading }, logoutUser }) => {
   const authLinks = (
     <ul className="footer navigation">
-      <Link to="/dashboard">
-        <i className="fas fa-user" />
-        <span className="hide-sm">Dashboard</span>
-      </Link>
+      <li>
+        <Link to="/dashboard">
+          <i className="fas fa-user" />
+          <span className="hide-sm">Dashboard</span>
+        </Link>
+      </li>
+      <li>
+        <Link to="/profiles">Developers</Link>
+      </li>
       <li>
         <a onClick={logoutUser} href="#!">
           <i className="fas fa-sign-out-alt" />
@@ -23,8 +28,8 @@ const Footer = ({ auth: { isAuthenticated, loading }, logoutUser }) => {
   const guestLinks = (
     <ul className="footer navigation">
       <li>
-        <Link to="/">
-          <i className="fas" /> <span>home</span>
+        <Link to="/profiles">
+          <i className="fas" /> <span>developers</span>
         </Link>
         <Link to="/login">
           <i className="fas" /> <span>login </span>
