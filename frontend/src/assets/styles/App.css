@@ -532,6 +532,25 @@ button {
   width: 180px;
 }
 
+.profile-container {
+  background-color: #dae3e7;
+}
+
 .App {
   border-top: 5px solid lightgrey;
+}
+
+.skill {
+  margin: 2px;
+  padding: 5px;
+  background-color: #5fba63;
+  color: white;
+}
+
+.nav-links {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  float: right;
 }

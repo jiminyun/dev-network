@@ -1,19 +1,22 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Components
+//import Navibar from "components/layout/Navibar";
 import Footer from "components/layout/Footer";
 import Landing from "components/layout/Landing";
+import Alert from "components/layout/Alert";
+// Routes
+import PrivateRoute from "components/routing/PrivateRoute";
 import Register from "pages/Register/";
 import Login from "pages/Login";
 import Dashboard from "pages/Dashboard";
-import PrivateRoute from "components/routing/PrivateRoute";
-import Profile from "pages/Profiles";
 import CreateProfile from "pages/CreateProfile";
 import EditProfile from "pages/EditProfile";
 import AddExperience from "pages/AddExperience";
 import AddEducation from "pages/AddEducation";
-import Profiles from "pages/Profiles/";
-import Alert from "components/layout/Alert";
+import Profile from "pages/Profile";
+import Profiles from "pages/Profiles";
+
 import "assets/styles/App.css";
 // Redux
 import { Provider } from "react-redux";
@@ -33,8 +36,9 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <div className="App">
+          {/* <Navibar /> */}
           <Route exact path="/" component={Landing} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile/:id" component={Profile} />
           <section className="container">
             <Alert />
             <Switch>

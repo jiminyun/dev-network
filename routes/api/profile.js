@@ -130,14 +130,14 @@ router.get("/", async (req, res) => {
   }
 });
 
-// @route  GET api/profile/user/:user_id
+// @route  GET api/profile/:user_id
 // @desc   Get profile by user ID
 // @access Public
 router.get("/user/:user_id", async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id
-    }).populate("user", ["name", "avatar"]);
+    }).populate("user", ["name", "email", "avatar"]);
 
     if (!profile) return res.status(400).json({ msg: "Profile not found" });
 
