@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Components
-//import Navibar from "components/layout/Navibar";
+import Navibar from "components/layout/Navibar";
 import Footer from "components/layout/Footer";
 import Landing from "components/layout/Landing";
 import Alert from "components/layout/Alert";
@@ -36,7 +36,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <div className="App">
-          {/* <Navibar /> */}
+          <Navibar />
           <Route exact path="/" component={Landing} />
           <Route exact path="/profile/:id" component={Profile} />
           <section className="container">
@@ -68,7 +68,7 @@ const App = () => {
               />
             </Switch>
           </section>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     </Provider>
