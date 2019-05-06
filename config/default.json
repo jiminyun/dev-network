@@ -1,6 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://jiminAdmin:pu2889pu_!@cluster0-zgnsl.mongodb.net/test?retryWrites=true",
-  "jwtSecret": "mysecrettoken",
-  "githubClientId": "ae84a4bc4f8e80f02134",
-  "githubSecret": "7c4fc8b64a260048cb96fa1a4ec438bf5902f499"
-}
