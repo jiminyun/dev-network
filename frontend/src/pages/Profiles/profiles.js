@@ -16,7 +16,7 @@ const Profiles = ({ getProfiles, profile: { loading, profiles } }) => {
       ) : (
         <>
           <h1>Developers</h1>
-          <div className="lead">
+          <div className="profile-list">
             {profiles.length > 0
               ? profiles.map(profile => <ProfileItem profile={profile} />)
               : "No profiles found"}

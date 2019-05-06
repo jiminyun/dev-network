@@ -554,3 +554,43 @@ button {
   justify-content: space-around;
   float: right;
 }
+
+.profile {
+  width: 17rem;
+  padding: 1rem;
+  margin: 2rem auto;
+  border: 0px;
+}
+
+.profile img {
+  width: 5rem;
+  border-radius: 50%;
+  border: 0.1rem solid teal;
+}
+
+.profile-wrapper {
+  border-radius: 0.3rem;
+  background-color: #f4f4f4;
+  margin: 2rem auto;
+  text-align: center;
+  width: 17rem;
+  padding: 1em;
+  transition: all 0.3s linear;
+}
+.profile-wrapper:hover {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+  .profile-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .profile-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
