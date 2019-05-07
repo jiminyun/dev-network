@@ -588,7 +588,10 @@ button {
     grid-gap: 1rem;
   }
 }
-
+.avatar {
+  width: 250px;
+  border-radius: 50%;
+}
 @media screen and (min-width: 992px) {
   .profile-list {
     grid-template-columns: repeat(3, 1fr);

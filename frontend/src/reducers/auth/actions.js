@@ -7,7 +7,9 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
+  UPDATE_AVATAR_SUCCESS,
+  UPDATE_AVATAR_FAIL
 } from "./types";
 import { CLEAR_PROFILE } from "../profile/types";
 import setAuthToken from "../../utils/setAuthToken";
@@ -94,6 +96,35 @@ const actions = {
   logoutUser: () => async dispatch => {
     dispatch({ type: LOGOUT });
     dispatch({ type: CLEAR_PROFILE });
+  },
+  updateAvatar: avatar => async dispatch => {
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    };
+
+    try {
+      const formData = new FormData();
+      formData.append("avatar", avatar);
+      formData.append("avatar", formData, config);
+
+      console.log(avatar);
+
+      const res = await axios.post("/api/upload/", formData, config);
+
+      dispatch({ type: UPDATE_AVATAR_SUCCESS, payload: res.data });
+    } catch (err) {
+      const errors = err.response.data.errors;
+
+      if (errors) {
+        errors.forEach(error =>
+          dispatch(authActions.setAlert(error.msg, "danger"))
+        );
+      }
+
+      dispatch({ type: UPDATE_AVATAR_FAIL });
+    }
   }
 };
 // Register User

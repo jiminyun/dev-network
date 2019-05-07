@@ -6,7 +6,9 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  ACCOUNT_DELETED
+  ACCOUNT_DELETED,
+  UPDATE_AVATAR_SUCCESS,
+  UPDATE_AVATAR_FAIL
 } from "./types";
 
 const initialState = {
@@ -45,6 +47,12 @@ const auth = (state = initialState, action) => {
         ...state,
         token: null,
         isAuthenticated: false,
+        loading: false
+      };
+    case UPDATE_AVATAR_SUCCESS:
+      return {
+        ...state,
+        user: payload,
         loading: false
       };
     default:

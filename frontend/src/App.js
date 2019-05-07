@@ -16,6 +16,7 @@ import AddExperience from "pages/AddExperience";
 import AddEducation from "pages/AddEducation";
 import Profile from "pages/Profile";
 import Profiles from "pages/Profiles";
+import EditAvatar from "pages/EditAvatar";
 
 import "assets/styles/App.css";
 // Redux
@@ -46,6 +47,7 @@ const App = () => {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
+              <PrivateRoute exact path="/edit-avatar" component={EditAvatar} />
               <PrivateRoute
                 exact
                 path="/create-profile"
