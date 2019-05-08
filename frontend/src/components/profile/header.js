@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const Header = ({ profile }) => {
+const Header = ({ profile, auth }) => {
   const { user, social, status, githubusername } = profile;
   return (
     <header className="header">
       <div className="container clearfix">
         <img
           className="profile-image img-fluid float-left"
-          src={require("../../assets/images/profile.png")}
-          alt="James Lee"
+          src={user.avatar}
+          alt={user.name}
         />
         <div className="profile-content float-left">
           <h1 className="name">{user.name}</h1>
@@ -61,13 +61,13 @@ const Header = ({ profile }) => {
           >
             <i class="fas fa-paper-plane" /> Contact Me
           </a>
-          {/* {auth.isAuthenticated &&
+          {auth.isAuthenticated &&
             auth.loading === false &&
-            auth.user._id === profile.user._id && ( */}
-          <Link to="/edit-profile" className="btn btn-dark float-right">
-            Edit Profile
-          </Link>
-          {/* )} */}
+            auth.user._id === profile.user._id && (
+              <Link to="/edit-profile" className="btn btn-dark float-right">
+                Edit Profile
+              </Link>
+            )}
         </div>
       </div>
     </header>

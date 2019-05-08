@@ -564,10 +564,16 @@ button {
 
 .profile img {
   width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   border: 0.1rem solid teal;
 }
-
+.profile-image {
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  border: 0.1rem solid teal;
+}
 .profile-wrapper {
   border-radius: 0.3rem;
   background-color: #f4f4f4;

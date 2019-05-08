@@ -291,6 +291,51 @@ router.put(
   }
 );
 
+// @route  PUT api/profile/project
+// @desc   Add profile project
+// @access Private
+router.put(
+  "/project",
+  [
+    auth,
+    [
+      check("title", "Title is required")
+        .not()
+        .isEmpty(),
+      check("description", "Description is required")
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { title, description, thumnail, github, techs, video } = req.body;
+
+    const newPrj = {
+      title,
+      description,
+      thumnail,
+      techs,
+      video,
+      github
+    };
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+      profile.project.unshift(newPrj);
+
+      await profile.save();
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server Error");
+    }
+  }
+);
 // @route  DELETE api/profile/experience/:exp_id
 // @desc   delete experience from profile
 // @access Private
@@ -336,6 +381,30 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+// @route  DELETE api/profile/project/:prj_id
+// @desc   delete project from profile
+// @access Private
+router.delete("/project/:prt_id", auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // Get remove index
+    const removeIndex = profile.project
+      .map(item => item.id)
+      .indexOf(req.params.prj_id);
+
+    //console.log(removeIndex);
+
+    profile.project.splice(removeIndex, 1);
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Sever Error");
+  }
+});
+
 // @route    GET api/profile/github/:username
 // @desc     Get user repos from Github
 // @access   Public

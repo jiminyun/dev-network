@@ -27,7 +27,7 @@ const Profile = ({
         <Spinner />
       ) : (
         <div className="profile-container">
-          <Header profile={profile} />
+          <Header profile={profile} auth={auth} />
           <div class="container sections-wrapper">
             <div class="row">
               <div class="primary col-lg-8 col-12">

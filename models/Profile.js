@@ -88,6 +88,29 @@ const ProfileSchema = new mongoose.Schema({
       }
     }
   ],
+  project: [
+    {
+      title: {
+        type: String,
+        required: true
+      },
+      thumnail: {
+        type: String
+      },
+      github: {
+        type: String
+      },
+      description: {
+        type: String
+      },
+      techs: {
+        type: Array
+      },
+      video: {
+        type: String
+      }
+    }
+  ],
   social: {
     youtube: {
       type: String
