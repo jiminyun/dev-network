@@ -9,7 +9,7 @@ import Education from "components/profile/education";
 import Experience from "components/profile/experience";
 import Skills from "components/profile/skills";
 import Github from "components/profile/github";
-import Project from "components/project";
+import Project from "components/profile/project";
 
 const Profile = ({
   getProfileById,
@@ -46,7 +46,15 @@ const Profile = ({
                     </div>
                   </div>
                 </section>
-                <Project />
+
+                <section class="latest section">
+                  <div class="section-inner">
+                    <h2 class="heading">Latest Projects</h2>
+                    {profile.project.map(prj => (
+                      <Project project={prj} />
+                    ))}
+                  </div>
+                </section>
               </div>
               <div class="secondary col-lg-4 col-12">
                 <Contact
