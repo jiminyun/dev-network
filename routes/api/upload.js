@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
-const upload = require("../../middleware/multer");
+const uploadAvatar = require("../../middleware/multer");
 
-router.post("/", auth, upload, async (req, res, next) => {
+router.post("/", auth, uploadAvatar, async (req, res, next) => {
   //console.log(req.user.id);
   try {
     let user = await User.findOne({ _id: req.user.id });

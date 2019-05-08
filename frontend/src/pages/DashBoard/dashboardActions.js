@@ -16,6 +16,9 @@ const DashboardActions = () => {
       <Link to="/add-education" className="btn btn-light">
         <i className="fas fa-graduation-cap text-primary" /> Add Education
       </Link>
+      <Link to="/add-project" className="btn btn-light">
+        <i className="fas fa-tasks text-primary" /> Add Project
+      </Link>
     </div>
   );
 };

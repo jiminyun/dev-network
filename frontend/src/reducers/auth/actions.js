@@ -107,9 +107,8 @@ const actions = {
     try {
       const formData = new FormData();
       formData.append("avatar", avatar);
-      formData.append("avatar", formData, config);
-
-      console.log(avatar);
+      //formData.append("avatar", formData, config);
+      //console.log(avatar);
 
       const res = await axios.post("/api/upload/", formData, config);
 

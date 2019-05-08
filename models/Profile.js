@@ -94,7 +94,7 @@ const ProfileSchema = new mongoose.Schema({
         type: String,
         required: true
       },
-      thumnail: {
+      thumbnail: {
         type: String
       },
       github: {

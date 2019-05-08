@@ -4,6 +4,7 @@ const config = require("config");
 const router = express.Router();
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator/check");
+const uploadFiles = require("../../middleware/multer");
 
 // Load Profile Model
 const Profile = require("../../models/Profile");
@@ -298,6 +299,7 @@ router.put(
   "/project",
   [
     auth,
+    uploadFiles,
     [
       check("title", "Title is required")
         .not()
@@ -313,12 +315,12 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { title, description, thumnail, github, techs, video } = req.body;
+    const { title, description, github, techs, video } = req.body;
 
     const newPrj = {
       title,
       description,
-      thumnail,
+      thumbnail: req.file.location,
       techs,
       video,
       github

@@ -18,5 +18,7 @@ const multerImage = multer({
 });
 
 const uploadAvatar = multerImage.single("avatar");
-//const uploadAvatar = multer({ storage }).single("avatar");
+const uploadFiles = multerImage.single("thumbnail");
+
 module.exports = uploadAvatar;
+module.exports = uploadFiles;

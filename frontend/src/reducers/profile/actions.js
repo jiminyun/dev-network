@@ -179,7 +179,46 @@ const actions = {
       });
     }
   },
+  // Add project
+  addProject: (formData, history) => async dispatch => {
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    };
+    try {
+      const _formData = new FormData();
 
+      _formData.append("title", formData.title);
+      _formData.append("github", formData.github);
+      _formData.append("techs", formData.techs);
+      _formData.append("thumbnail", formData.thumbnail);
+      _formData.append("video", formData.video);
+      _formData.append("description", formData.description);
+
+      const res = await axios.put("api/profile/project", _formData, config);
+
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: res.data
+      });
+
+      dispatch(alertActions.setAlert("Project Added", "success"));
+      history.push("/dashboard");
+    } catch (err) {
+      const errors = err.response.data.errors;
+      if (errors) {
+        errors.forEach(err =>
+          dispatch(alertActions.setAlert(err.msg, "danger"))
+        );
+      }
+
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
+    }
+  },
   // Delete experience
   deleteExperience: id => async dispatch => {
     try {
@@ -208,6 +247,24 @@ const actions = {
       });
 
       dispatch(alertActions.setAlert("Education Removed", "success"));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
+    }
+  },
+
+  // Delete project
+  deleteProject: id => async dispatch => {
+    try {
+      const res = await axios.delete(`/api/profile/project/${id}`);
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: res.data
+      });
+
+      dispatch(alertActions.setAlert("Project Removed", "success"));
     } catch (err) {
       dispatch({
         type: PROFILE_ERROR,

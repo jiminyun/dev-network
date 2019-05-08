@@ -14,6 +14,7 @@ import CreateProfile from "pages/CreateProfile";
 import EditProfile from "pages/EditProfile";
 import AddExperience from "pages/AddExperience";
 import AddEducation from "pages/AddEducation";
+import AddProject from "pages/AddProject";
 import Profile from "pages/Profile";
 import Profiles from "pages/Profiles";
 import EditAvatar from "pages/EditAvatar";
@@ -68,6 +69,7 @@ const App = () => {
                 path="/add-education"
                 component={AddEducation}
               />
+              <PrivateRoute exact path="/add-project" component={AddProject} />
             </Switch>
           </section>
           {/* <Footer /> */}

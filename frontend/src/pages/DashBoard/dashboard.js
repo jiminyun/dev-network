@@ -5,7 +5,7 @@ import Spinner from "components/layout/Spinner";
 import DashboardActions from "./dashboardActions";
 import Experience from "./experience";
 import Education from "./education";
-
+import Project from "./project";
 const Dashboard = ({
   getCurrentProfile,
   auth: { user },
@@ -32,7 +32,7 @@ const Dashboard = ({
           <br />
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
-
+          <Project project={profile.project} />
           <div className="my-2">
             <button className="btn btn-danger" onClick={() => deleteAccount()}>
               <i className="fas fa-user-minus" /> Delete My Account
