@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Moment from "react-moment";
 
 const Experience = ({ project }) => {
   const { title, description, thumbnail, github } = project;

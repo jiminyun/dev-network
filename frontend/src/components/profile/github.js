@@ -7,7 +7,7 @@ import profileActions from "reducers/profile/actions";
 const Github = ({ username, getGithubRepos, repos }) => {
   useEffect(() => {
     getGithubRepos(username);
-  }, [getGithubRepos]);
+  }, [getGithubRepos, username]);
 
   return (
     <ul class="list-unstyled">

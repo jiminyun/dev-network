@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 
 const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
-    company: "",
-    title: "",
-    location: "",
+    degree: "",
+    school: "",
+    fieldofstudy: "",
     from: "",
     to: "",
-    current: false,
+    current: "",
     description: ""
   });
   const [toDataDisabled, toggleDisabled] = useState(false);

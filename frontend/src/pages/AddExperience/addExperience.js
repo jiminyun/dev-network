@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 
 const AddExperience = ({ addExperience, history }) => {
   const [formData, setFormData] = useState({

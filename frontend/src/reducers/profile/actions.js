@@ -189,9 +189,11 @@ const actions = {
     try {
       const _formData = new FormData();
 
+      const techArray = formData.techs.split(",");
+
       _formData.append("title", formData.title);
       _formData.append("github", formData.github);
-      _formData.append("techs", formData.techs);
+      _formData.append("techs", techArray);
       _formData.append("thumbnail", formData.thumbnail);
       _formData.append("video", formData.video);
       _formData.append("description", formData.description);

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Components
 import Navibar from "components/layout/Navibar";
-import Footer from "components/layout/Footer";
+// import Footer from "components/layout/Footer";
 import Landing from "components/layout/Landing";
 import Alert from "components/layout/Alert";
 // Routes

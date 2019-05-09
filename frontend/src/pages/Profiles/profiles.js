@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 const Profiles = ({ getProfiles, profile: { loading, profiles } }) => {
   useEffect(() => {
     getProfiles();
-  }, []);
+  }, [getProfiles]);
 
   return (
     <div>

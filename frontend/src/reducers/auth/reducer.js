@@ -7,8 +7,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   ACCOUNT_DELETED,
-  UPDATE_AVATAR_SUCCESS,
-  UPDATE_AVATAR_FAIL
+  UPDATE_AVATAR_SUCCESS
 } from "./types";
 
 const initialState = {

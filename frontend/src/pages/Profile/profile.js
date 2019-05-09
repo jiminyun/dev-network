@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import Spinner from "components/layout/Spinner";
 import Header from "components/profile/header";
 import AboutMe from "components/profile/aboutMe";
