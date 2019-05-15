@@ -51,7 +51,7 @@ const ProfileItem = ({
 
 const styles = theme => ({
   tile: {
-    padding: 20
+    padding: 5
   }
 });
 

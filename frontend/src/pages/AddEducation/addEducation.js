@@ -30,8 +30,8 @@ const AddEducation = ({ addEducation, history }) => {
       ...formData,
       description: description.replace(/(\n|\r\n)/g, "<br>")
     });
-    console.log(formData);
-    //addEducation(formData, history);
+    //console.log(formData);
+    addEducation(formData, history);
   };
   return (
     <>

@@ -31,7 +31,7 @@ const Profiles = ({ getProfiles, profile: { loading, profiles }, classes }) => {
           <h1>People</h1>
           <div className={classes.root}>
             <GridList cellHeight={180}>
-              <GridListTile key="people" cols={3} style={{ height: "auto" }} />
+              <GridListTile key="people" cols={4} style={{ height: "auto" }} />
               {profiles.length > 0
                 ? profiles.map(profile => <ProfileItem profile={profile} />)
                 : "No profiles found"}
