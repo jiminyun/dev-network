@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
-const uploadAvatar = require("../../middleware/multer");
+const multerImage = require("../../middleware/multer");
+const uploadAvatar = multerImage.single("avatar");
 
 router.post("/", auth, uploadAvatar, async (req, res, next) => {
   //console.log(req.user.id);

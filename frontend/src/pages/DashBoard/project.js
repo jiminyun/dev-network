@@ -8,7 +8,7 @@ const Project = ({ project, deleteProject }) => {
     <tr key={prj._id}>
       <td>{prj.title}</td>
       <td>
-        <img src={prj.thumbnail} alt={prj.title} />
+        <img src={prj.thumbnail} alt={prj.title} width="200" />
       </td>
       <td className="hide-sm">{prj.description}</td>
       <td className="hide-sm">{prj.techs}</td>

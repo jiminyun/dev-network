@@ -103,6 +103,7 @@
 .bg-light,
 .badge-light,
 .alert-light {
+  border: 1px solid #808080;
   background: var(--light-color);
   color: #333;
 }
@@ -271,7 +272,7 @@ button {
   color: #fff;
   height: 100%;
   width: 100%;
-  margin: auto;
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -325,13 +326,6 @@ button {
 
 .profile-about {
   grid-area: about;
-  text-align: center;
-}
-
-.profile-about .skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
 }
 
@@ -541,8 +535,8 @@ button {
 }
 
 .skill {
-  margin: 2px;
-  padding: 5px;
+  margin: 5px 3px;
+  padding: 1px;
   background-color: #5fba63;
   color: white;
 }
@@ -586,7 +580,15 @@ button {
 .profile-wrapper:hover {
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
-
+.xx-large {
+  color: var(--primary-color);
+  font-size: 6.5rem;
+  font-weight: 800;
+  line-height: 0.8em;
+}
+.btn-light {
+  border: 1 solid gray;
+}
 @media screen and (min-width: 768px) {
   .profile-list {
     display: grid;
@@ -598,6 +600,14 @@ button {
   width: 250px;
   border-radius: 50%;
 }
+
+.skills {
+  background-color: #5fba63;
+  color: white;
+  padding: 2px;
+  margin: 2px;
+}
+
 @media screen and (min-width: 992px) {
   .profile-list {
     grid-template-columns: repeat(3, 1fr);

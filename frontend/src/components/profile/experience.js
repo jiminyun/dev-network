@@ -18,7 +18,15 @@ const Experience = ({ experience }) => {
           {current ? "Current" : <Moment format="YYYY/MM/DD">{to}</Moment>})
         </span>
       </h3>
-      <p>{description}</p>
+      {description}
+      {description.split("\n").map((item, key) => {
+        return (
+          <span key={key}>
+            {item}
+            <br />
+          </span>
+        );
+      })}
     </div>
   );
 };

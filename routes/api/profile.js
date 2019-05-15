@@ -4,7 +4,8 @@ const config = require("config");
 const router = express.Router();
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator/check");
-const uploadFiles = require("../../middleware/multer");
+const multerImage = require("../../middleware/multer");
+const uploadFiles = multerImage.single("thumbnail");
 
 // Load Profile Model
 const Profile = require("../../models/Profile");

@@ -122,9 +122,9 @@ a.dotted-link:hover {
 
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  --primary-color: grey;
   --dark-color: #343a40;
-  --light-color: #f4f4f4;
+  --light-color: rgb(0, 0, 0) 4;
   --danger-color: #dc3545;
   --success-color: #28a745;
 }
@@ -142,10 +142,6 @@ a {
 
 ul {
   list-style: none;
-}
-
-img {
-  width: 100%;
 }
 
 /* ======= Header ======= */
@@ -673,6 +669,14 @@ img {
   color: #fb866a;
 }
 
+.land-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 767.98px) {
   .header {
     text-align: center;
@@ -691,5 +695,8 @@ img {
   }
   .project-image {
     margin-bottom: 15px;
+  }
+  .btn .btn-login {
+    background: #000;
   }
 }

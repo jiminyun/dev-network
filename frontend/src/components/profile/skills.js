@@ -2,7 +2,7 @@ import React from "react";
 // import PropTypes from "prop-types";
 
 const Skills = ({ skill }) => {
-  return <span className="skill">{skill}</span>;
+  return <span className="skills">{skill}</span>;
 };
 
 Skills.propTypes = {};

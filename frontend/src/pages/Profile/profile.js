@@ -9,6 +9,7 @@ import Experience from "components/profile/experience";
 import Skills from "components/profile/skills";
 import Github from "components/profile/github";
 import Project from "components/profile/project";
+import "assets/styles/styles.css";
 
 const Profile = ({
   getProfileById,
@@ -64,14 +65,13 @@ const Profile = ({
                 <aside class="education aside section">
                   <div class="section-inner">
                     <h2 class="heading">Skills</h2>
-                    <div class="content">
-                      {" "}
+                    <p class="skill-list">
                       {profile.skills.length > 0 ? (
                         profile.skills.map(skill => <Skills skill={skill} />)
                       ) : (
                         <h4>No Skills</h4>
                       )}
-                    </div>
+                    </p>
                   </div>
                 </aside>
                 <aside class="education aside section">

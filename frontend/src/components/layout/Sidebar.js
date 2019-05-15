@@ -17,7 +17,7 @@ const Sidebar = props => {
       </Link>
       <Link to="/profiles">
         <li key="3" className="sidebar-link">
-          Developers
+          People
         </li>
       </Link>
       <a onClick={props.logoutUser} href="#!">
@@ -36,7 +36,7 @@ const Sidebar = props => {
       </Link>
       <Link to="/profiles">
         <li key="2" className="sidebar-link">
-          Developers
+          People
         </li>
       </Link>
       <Link to="/login">

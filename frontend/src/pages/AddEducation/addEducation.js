@@ -9,7 +9,7 @@ const AddEducation = ({ addEducation, history }) => {
     fieldofstudy: "",
     from: "",
     to: "",
-    current: "",
+    current: false,
     description: ""
   });
   const [toDataDisabled, toggleDisabled] = useState(false);
@@ -26,7 +26,12 @@ const AddEducation = ({ addEducation, history }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = e => {
     e.preventDefault();
-    addEducation(formData, history);
+    setFormData({
+      ...formData,
+      description: description.replace(/(\n|\r\n)/g, "<br>")
+    });
+    console.log(formData);
+    //addEducation(formData, history);
   };
   return (
     <>

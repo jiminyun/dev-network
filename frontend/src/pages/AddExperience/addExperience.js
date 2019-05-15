@@ -12,14 +12,21 @@ const AddExperience = ({ addExperience, history }) => {
     current: false,
     description: ""
   });
-  const [toDataDisabled, toggleDisabled] = useState(false);
-  const { company, title, location, from, to, current, description } = formData;
+
   const onChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  const onSubmit = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+
+  const onSubmit = async e => {
     e.preventDefault();
+    //console.log(formData.description);
     addExperience(formData, history);
   };
+
+  const [toDataDisabled, toggleDisabled] = useState(false);
+  const { company, title, location, from, to, current, description } = formData;
   return (
     <>
       <div className="section add-experience">

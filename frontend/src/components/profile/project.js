@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Experience = ({ project }) => {
-  const { title, description, thumbnail, github } = project;
+  const { title, description, thumbnail, github, techs } = project;
   return (
     <div class="item row">
       <a class="col-md-4 col-12" href="#!">
@@ -17,6 +17,7 @@ const Experience = ({ project }) => {
             github
           </a>
         </p>
+        <p>{techs}</p>
       </div>
     </div>
   );
