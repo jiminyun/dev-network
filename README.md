@@ -21,6 +21,10 @@ npm run dev
 
 ## Demo
 
+https://www.youtube.com/watch?v=agWCSK67DiY
+
+[![Watch the video](https://img.youtube.com/vi/agWCSK67DiY/maxresdefault.jpg)](https://youtu.be/agWCSK67DiY)
+
 ## Pages:
 
 - [x] Home
